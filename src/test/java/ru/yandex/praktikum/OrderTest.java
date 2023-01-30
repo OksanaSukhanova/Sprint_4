@@ -47,7 +47,7 @@ public class OrderTest {
     }
 
     @Test
-    public void orderScooterByHeaderButton_expectOrderConfirmed() {
+    public void orderScooterByHeaderButtonIsConfirmed() {
         driver = new ChromeDriver();
         MainPage mainPage = new MainPage(driver);
         mainPage.open().checkPageIsLoaded().acceptCookie().clickHeaderOrderButton();

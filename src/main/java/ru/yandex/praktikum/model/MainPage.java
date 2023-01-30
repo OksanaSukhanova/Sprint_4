@@ -22,6 +22,8 @@ public class MainPage {
     private static final By HOME_ORDER_BUTTON = By.xpath(".//div[contains(@class, 'Home_Finish')]//button[text()='Заказать']");
     // Элементы раскрывающегося списка
     private static final String ACCORDION_ITEMS = "//div[@class='accordion']//div";
+    // Внутренний текст элемента раскрывающегося списка
+    private static final By ACCORDION_ITEM_INNER_TEXT = By.xpath("../..//div[@class='accordion__panel']//p");
 
     public MainPage(WebDriver driver) {
         this.driver = driver;
@@ -57,7 +59,7 @@ public class MainPage {
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", item);
         item.click();
         new WebDriverWait(driver, 3).until(ExpectedConditions
-                .visibilityOf(item.findElement(By.xpath("../..//div[@class='accordion__panel']//p"))));
-        return item.findElement(By.xpath("../..//div[@class='accordion__panel']//p")).getText();
+                .visibilityOf(item.findElement(ACCORDION_ITEM_INNER_TEXT)));
+        return item.findElement(ACCORDION_ITEM_INNER_TEXT).getText();
     }
 }

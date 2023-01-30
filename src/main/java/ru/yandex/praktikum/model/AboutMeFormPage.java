@@ -26,7 +26,6 @@ public class AboutMeFormPage {
     // Кнопка Далее
     private static final By NEXT_STEP_BUTTON = By.xpath(".//button[text()='Далее']");
 
-
     public AboutMeFormPage(WebDriver driver) {
         this.driver = driver;
     }
